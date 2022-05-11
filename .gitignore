@@ -1,0 +1,6 @@
+.idea
+valid.txt
+invalid.txt
+# Project exclude paths
+/target/
+/application*

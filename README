@@ -1,0 +1,8 @@
+#must have JarValidator installed in local mvn repo
+
+#from root
+
+java install
+
+#optional params -sbd asc|desc -f male|female
+java -jar .\target\JarCodeBatchProcessor-1.0-SNAPSHOT-jar-with-dependencies.jar -i in.txt

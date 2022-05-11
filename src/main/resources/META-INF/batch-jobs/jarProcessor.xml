@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job id="jarProcessor" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+    <properties>
+        <property name="valid_file" value="valid.txt"/>
+        <property name="invalid_file" value="invalid.txt"/>
+    </properties>
+    <step id="processingStep" next="sortStep">
+        <chunk>
+            <reader ref="org.minsirv.batch.InputFileReader"/>
+            <processor ref="org.minsirv.batch.JarCodeProcessor"/>
+            <writer ref="org.minsirv.batch.OutputFileWriter"/>
+        </chunk>
+
+        <partition>
+            <plan threads="4"/>
+        </partition>
+    </step>
+    <step id="sortStep">
+        <batchlet ref="org.minsirv.batch.JarCodeSortCountBatchlet"/>
+        <end on="COMPLETED"/>
+    </step>
+</job>
